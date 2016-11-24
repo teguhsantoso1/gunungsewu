@@ -14,6 +14,8 @@
 CREATE TABLE IF NOT EXISTS `app` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` int(11) NOT NULL,
+  `empid` varchar(20) NOT NULL,
+  `empname` varchar(100) NOT NULL,
   `quesioner` varchar(200) NOT NULL,
   `bidang_1` int(11) NOT NULL,
   `bidang_1_ket` text NOT NULL,
@@ -28,11 +30,11 @@ CREATE TABLE IF NOT EXISTS `app` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gunungsewu.app: ~0 rows (approximately)
+-- Dumping data for table gunungsewu.app: ~2 rows (approximately)
 /*!40000 ALTER TABLE `app` DISABLE KEYS */;
-INSERT INTO `app` (`id`, `code`, `quesioner`, `bidang_1`, `bidang_1_ket`, `bidang_2`, `bidang_2_ket`, `audit`, `salah`, `user_create`, `date_create`, `user_update`, `date_update`) VALUES
-	(1, 1, '1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,', 1, 'Apa yang paling Anda sukai dalam bekerja di perusahaan ini? Pilihlah bidang yang paling sesuai dan uraikan pendapat atau pandangan Anda', 2, 'dakah hal-hal yang menurut anda perlu ditingkatkan di perusahaan ini? Pilihlah bidang yang sesuai dan uraikan pendapat anda', '', '', 1, '2016-11-22 20:33:16', 0, '0000-00-00 00:00:00'),
-	(2, 2, '4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,', 3, 'asdasdsad', 0, '', '', '', 1, '2016-11-22 20:35:31', 1, '2016-11-22 20:35:39');
+INSERT INTO `app` (`id`, `code`, `empid`, `empname`, `quesioner`, `bidang_1`, `bidang_1_ket`, `bidang_2`, `bidang_2_ket`, `audit`, `salah`, `user_create`, `date_create`, `user_update`, `date_update`) VALUES
+	(1, 1, '', '', '1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,', 1, 'Apa yang paling Anda sukai dalam bekerja di perusahaan ini? Pilihlah bidang yang paling sesuai dan uraikan pendapat atau pandangan Anda', 2, 'dakah hal-hal yang menurut anda perlu ditingkatkan di perusahaan ini? Pilihlah bidang yang sesuai dan uraikan pendapat anda', '', '', 1, '2016-11-22 20:33:16', 0, '0000-00-00 00:00:00'),
+	(2, 2, '', '', '4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,', 3, 'asdasdsad', 0, '', '', '', 1, '2016-11-22 20:35:31', 1, '2016-11-22 20:35:39');
 /*!40000 ALTER TABLE `app` ENABLE KEYS */;
 
 
@@ -44,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `bidang` (
   KEY `code` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gunungsewu.bidang: ~0 rows (approximately)
+-- Dumping data for table gunungsewu.bidang: ~14 rows (approximately)
 /*!40000 ALTER TABLE `bidang` DISABLE KEYS */;
 INSERT INTO `bidang` (`id`, `name`) VALUES
 	(1, 'Empowerment/Autonomy'),
@@ -87,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table gunungsewu.user: ~19 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `fullname`, `username`, `password`, `level`, `status`, `ip_login`, `user_agent`, `date_login`, `user_create`, `date_create`, `user_update`, `date_update`) VALUES
-	(1, 'Adam Prasetia', 'damz', 'A267796', 1, 1, '::1', 'Windows 7(Google Chrome 54.0.2840.99)', '2016-11-22 19:37:54', '', '2015-09-30 09:35:33', '1', '2015-09-30 15:07:19'),
+	(1, 'Adam Prasetia', 'damz', 'A267796', 1, 1, '::1', 'Windows 7(Google Chrome 54.0.2840.99)', '2016-11-24 16:30:35', '', '2015-09-30 09:35:33', '1', '2015-09-30 15:07:19'),
 	(2, 'Teguh Santoso', 'teguh', 'cleopatra', 1, 1, '192.168.10.31', 'Windows 7(Google Chrome 53.0.2785.116)', '2016-10-04 09:51:25', '', '2015-09-30 09:35:52', '', '0000-00-00 00:00:00'),
 	(7, 'Firman Rusbandy', 'firman', '10020', 3, 1, '192.168.10.178', 'Windows XP(Mozilla Firefox 41.0)', '2015-10-16 08:24:07', '1', '2015-10-08 14:35:06', '1', '2015-10-08 14:35:06'),
 	(8, 'Julius', 'Julius', '11073', 3, 1, '192.168.10.175', 'Windows XP(Mozilla Firefox 14.0.1)', '2015-10-21 12:43:36', '1', '2015-10-08 14:41:32', '1', '2015-10-08 14:41:32'),

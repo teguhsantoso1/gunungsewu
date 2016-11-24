@@ -17,6 +17,8 @@ class App extends MY_Controller {
 		
 		$head_data = array(
 			'code'=>'Code'
+			,'empid'=>'EmpID'
+			,'empname'=>'EmpName'
 			,'quesioner'=>'Quesioner'
 			,'bidang_1_name'=>'Bidang 1'
 			,'bidang_1_ket'=>'Bidang 1 Ket'
@@ -37,6 +39,8 @@ class App extends MY_Controller {
 			$this->table->add_row(
 				$i++
 				,$r->code
+				,$r->empid
+				,$r->empname
 				,str_replace(',', ' ', $r->quesioner)
 				,$r->bidang_1_name	
 				,$r->bidang_1_ket
@@ -63,6 +67,8 @@ class App extends MY_Controller {
 	}	
 	function _set_rules(){
 		$this->form_validation->set_rules('code','Form Code','trim|required|callback__check_double');
+		$this->form_validation->set_rules('empid','EmpID','trim');
+		$this->form_validation->set_rules('empname','EmpName','trim');
 		for($i=1;$i<=63;$i++){
 			$this->form_validation->set_rules('q'.$i,'Q-'.$i,'trim');
 		}
@@ -101,7 +107,7 @@ class App extends MY_Controller {
 				return true;	
 			}
 		}		
-		$data = array('bidang_1','bidang_1_ket','bidang_2','bidang_2_ket');
+		$data = array('empid','empname','bidang_1','bidang_1_ket','bidang_2','bidang_2_ket');
 		foreach($data as $r){
 			if ($this->input->post($r)<>''){
 				return true;	
@@ -117,6 +123,8 @@ class App extends MY_Controller {
 		}
 		$data = array(
 			'code'=>$this->input->post('code')
+			,'empid'=>$this->input->post('empid')
+			,'empname'=>$this->input->post('empname')
 			,'quesioner'=>$quesioner
 			,'bidang_1'=>$this->input->post('bidang_1')
 			,'bidang_1_ket'=>$this->input->post('bidang_1_ket')
@@ -208,10 +216,10 @@ class App extends MY_Controller {
 		$excel->setActiveSheetIndex(0);
 		$active_sheet = $excel->getActiveSheet();
 		$active_sheet->setTitle('App List');		
-		$active_sheet->getStyle("A1:BO1")->getFont()->setBold(true);
+		$active_sheet->getStyle("A1:BV1")->getFont()->setBold(true);
 
-		$active_sheet->setCellValue('A1', 'responseid');
-		$active_sheet->setCellValue('B1', 'respid');
+		$active_sheet->setCellValue('A1', 'EmpId');
+		$active_sheet->setCellValue('B1', 'EmpName');
 		$active_sheet->setCellValue('C1', 'Date of entry');
 		$active_sheet->setCellValue('D1', 'Q1');
 		$active_sheet->setCellValue('E1', 'Q2');
@@ -288,8 +296,8 @@ class App extends MY_Controller {
 		$i=2;
 		foreach($result as $r){
 			$quesioner = explode(',',$r->quesioner);
-			$active_sheet->setCellValue('A'.$i, $r->code);
-			$active_sheet->setCellValue('B'.$i, '');
+			$active_sheet->setCellValue('A'.$i, $r->empid);
+			$active_sheet->setCellValue('B'.$i, $r->empname);
 			$active_sheet->setCellValue('C'.$i, PHPExcel_Shared_Date::PHPToExcel(date_to_excel($r->date_create)));
 			$active_sheet->getStyle('C'.$i)->getNumberFormat()->setFormatCode('dd/mm/yyyy');		   			
 			$active_sheet->setCellValue('D'.$i, $quesioner[1-1]);
