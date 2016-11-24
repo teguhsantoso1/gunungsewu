@@ -30,7 +30,7 @@
   		<div class="col-md-offset-3 col-md-6">
 				<div class="panel panel-default">
 					<div class="panel-body" style="position:relative;">
-  					<?=img(array('src'=>'assets/img/aon.png','style'=>'width:100%'))?>
+  					<?=img(array('src'=>'assets/img/aon.png?v=2','style'=>'width:100%'))?>
 	    		</div>	
 					<div class="panel-footer">
 						ADirect - Aon | Gunung Sewu EES Data Entry System 2016
