@@ -9,8 +9,6 @@ class Dashboard extends MY_Controller {
 	function index(){
 		$data['title'] = APP_NAME.' - Dashboard';
 		$data['total'] = number_format($this->mdl_chart->get_total_entry());
-		$data['total_id'] = number_format($this->mdl_chart->get_total_id());
-		$data['total_en'] = number_format($this->mdl_chart->get_total_en());
 		$data['de'] = number_format($this->_get_de());
 		$this->lib_general->display('dashboard',$data);
 	}

@@ -197,7 +197,6 @@ class App extends MY_Controller {
 		return $str;
 	}	
 	function export(){
-		$country = $this->input->get('country');
 		ini_set('memory_limit','-1'); 
 
 		$order_column = ($this->input->get('order_column')<>''?$this->input->get('order_column'):'id');

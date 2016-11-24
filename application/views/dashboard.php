@@ -13,28 +13,6 @@
 		</div>
 		<?php if($this->session->userdata('user_level')<>3){ ?>
 		<div class="col-lg-3 col-xs-6">
-		  <div class="small-box bg-green">
-			<div class="inner">
-			  <h3><?=$total_id?></h3>
-			  <p>Quesioner Indonesia</p>
-			</div>
-			<div class="icon">
-			  <i class="ion ion-document-text"></i>
-			</div>
-		  </div>
-		</div>
-		<div class="col-lg-3 col-xs-6">
-		  <div class="small-box bg-yellow">
-			<div class="inner">
-			  <h3><?=$total_en?></h3>
-			  <p>Quesioner Inggris</p>
-			</div>
-			<div class="icon">
-			  <i class="ion ion-document-text"></i>
-			</div>
-		  </div>
-		</div>
-		<div class="col-lg-3 col-xs-6">
 		  <div class="small-box bg-red">
 			<div class="inner">
 			  <h3><?=$de?></h3>

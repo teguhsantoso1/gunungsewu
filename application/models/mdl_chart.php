@@ -26,14 +26,4 @@ class Mdl_chart extends CI_Model {
 		$this->query();
 		return $this->db->count_all_results('app');	
 	}
-	function get_total_id(){
-		$this->query();
-		$this->db->where('country','ID');	
-		return $this->db->count_all_results('app');	
-	}
-	function get_total_en(){
-		$this->query();
-		$this->db->where('country','EN');	
-		return $this->db->count_all_results('app');	
-	}
 }
