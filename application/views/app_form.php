@@ -3,8 +3,8 @@
 <?=form_open($action)?>
 <section class="content-header breadcrumb">
 	Form Code : <?=form_input(array('name'=>'code','type'=>'number','maxlength'=>'10','autocomplete'=>'off','autofocus'=>'autofocus','value'=>set_value('code',(isset($row->code)?$row->code:$this->input->get('code')))))?>
-	EmpID : <?=form_input(array('name'=>'empid','maxlength'=>'20','size'=>'10','autocomplete'=>'off','autofocus'=>'autofocus','value'=>set_value('empid',(isset($row->empid)?$row->empid:""))))?>
-	Empname : <?=form_input(array('name'=>'empname','maxlength'=>'100','size'=>'60','autocomplete'=>'off','autofocus'=>'autofocus','value'=>set_value('empname',(isset($row->empname)?$row->empname:""))))?>
+	EmpID : <?=form_input(array('id'=>'empid','name'=>'empid','maxlength'=>'20','size'=>'20','autocomplete'=>'off','value'=>set_value('empid',(isset($row->empid)?$row->empid:""))))?>
+	Empname : <?=form_input(array('id'=>'empname','name'=>'empname','maxlength'=>'100','size'=>'60','autocomplete'=>'off','value'=>set_value('empname',(isset($row->empname)?$row->empname:""))))?>
 	<ol class="breadcrumb">
 	  <li class="active"><?=$heading?></li>
 	  <li>User Entry : <b><?=$this->lib_general->get_username(isset($row->user_create)?$row->user_create:$this->session->userdata('user_login'))?></b></li>
@@ -100,3 +100,15 @@
 	</div>	
 </div>	
 <?=form_close()?>
+<script type="text/javascript">
+	$('#empid').blur(function(){
+		$.ajax({
+			url:'<?php echo base_url('index.php/emp/get_name') ?>',
+			data:{empid:$('#empid').val()},
+			method:'post',
+			success:function(str){
+				$('#empname').val(str);
+			}
+		});
+	});
+</script>

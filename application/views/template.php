@@ -17,6 +17,8 @@
 	<link href="<?=base_url('../assets/font-awesome-4.3.0/css/font-awesome.min.css')?>" type="text/css" rel="stylesheet"/>
 	<link href="<?=base_url('../assets/ionicons-2.0.1/css/ionicons.min.css')?>" type="text/css" rel="stylesheet"/>
 	<link href="<?=base_url('../assets/AdminLTE-2.1.1/plugins/morris/morris.css')?>" type="text/css" rel="stylesheet"/>
+
+	<script src="<?=base_url('../assets/js/jquery-1.11.3.min.js')?>"></script>
 </head>
 <body>
 		<nav class="navbar navbar-default navbar-static-top">
@@ -52,7 +54,6 @@
     </div>
   </footer>
 
-	<script src="<?=base_url('../assets/js/jquery-1.11.3.min.js')?>"></script>
 	<script src="<?=base_url('../assets/jquery-ui-1.11.2.custom/jquery-ui.min.js')?>"></script>
 	<script src="<?=base_url('../assets/bootstrap-3.3.4-dist/js/bootstrap.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/general.js')?>"></script>
